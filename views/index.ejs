@@ -2810,7 +2810,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div><!-- .block-products-carousel / end -->
+                            </div>
+                            <!-- .block-products-carousel / end -->
                             <!-- .block-banner -->
                             <div class="block block-banner">
                                 <div class="container"><a href="#" class="block-banner__body">
@@ -9614,8 +9615,51 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div id="AC-table-data"></div>
                             </div><!-- .block-product-columns / end -->
                         </div><!-- site__body / end -->
+
+
+<script type="module">
+
+import {
+        createSignal,
+        onCleanup,
+      } from "https://cdn.skypack.dev/solid-js";
+      import { render } from "https://cdn.skypack.dev/solid-js/web";
+      import html from "https://cdn.skypack.dev/solid-js/html";
+
+      const App = () => {
+        return html`
+        
+        
+        `;
+      };
+      render(App, document.getElementById("AC-table-data"));
+
+</script>
+<!--                         
+                        <script id="AcTabelHandlebars" type="text/x-handlebars-template">
+                            <div>
+                                {{#with person}}
+{{firstname}} {{lastname}}
+{{/with}}
+                            </div>
+                        </script>
+<script>
+        let template = Handlebars.compile(
+          document.querySelector("#AcTabelHandlebars").innerHTML
+        );
+        let filled = template({
+  person: {
+    firstname: "Yehuda",
+    lastname: "Katz",
+  },
+});
+        document.querySelector("#AC-table-data").innerHTML = filled;
+
+</script> -->
+
                         <%- include('./layout/footer'); %>
 
                 </div><!-- site / end -->

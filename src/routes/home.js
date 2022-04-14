@@ -9,13 +9,13 @@ router.get('/', function(req, res, next) {
         next(err)
     }
 });
-router.get('/wishlist_view', function(req, res, next) {
+router.get('/wishlist-view', function(req, res, next) {
   res.render('wishlist', { title: 'wishlist' });
 });
-router.get('/cart_view', function(req, res, next) {
+router.get('/cart-view', function(req, res, next) {
   res.render('cart', { title: 'cart' });
 });
-router.get('/checkout_view', function(req, res, next) {
+router.get('/checkout-view', function(req, res, next) {
   res.render('checkout', { title: 'checkout' });
 });
 

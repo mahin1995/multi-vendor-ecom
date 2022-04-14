@@ -13,8 +13,8 @@ module.exports = async (app) => {
 
 // views
 app.use('/home', home_view);
-app.use('/users-views', products_view);
-app.use('/product-views', users_view);
+app.use('/users-views',users_view );
+app.use('/product-views',products_view );
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
 //   next(createError(404));

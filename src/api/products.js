@@ -8,12 +8,65 @@ module.exports = (app) => {
     const customerService = new CustomerService();
 
 
-    app.post('/product-api/create', async(req,res,next) => {
+    app.post('/product-api/create-product', async(req,res,next) => {
         
         try {
-            const { name, desc, type, unit,price, available, suplier, banner } = req.body; 
+            const { name, desc, type, unit,price, available, suplier, banner,brand,category,description,subcategories,image } = req.body; 
             // validation
-            const { data } =  await service.CreateProduct({ name, desc, type, unit,price, available, suplier, banner });
+            const { data } =  await service.CreateProduct({ name, desc, type, unit,price, available, suplier, banner,brand,category,description,subcategories,image });
+            return res.json(data);
+            
+        } catch (err) {
+            next(err)    
+        }
+        
+    });
+    app.post('/product-api/create-brand', async(req,res,next) => {
+        
+        try {
+            const { name, desc } = req.body; 
+        
+            // validation
+            const { data } =  await service.CreateBrand({ name, desc });
+            return res.json(data);
+            
+        } catch (err) {
+            next(err)    
+        }
+        
+    });
+    app.post('/product-api/create-subcatagories', async(req,res,next) => {
+        
+        try {
+            const { name,desc,products } = req.body; 
+            // validation
+            const { data } =  await service.CreateSubcategorie({ name, desc,products });
+            return res.json(data);
+            
+        } catch (err) {
+            next(err)    
+        }
+        
+    });
+    app.post('/product-api/create-catagories', async(req,res,next) => {
+        
+        try {
+            const { name,desc,subcategories } = req.body; 
+            // validation
+            const { data } =  await service.Createcategorie({ name, desc,subcategories });
+            return res.json(data);
+            
+        } catch (err) {
+            next(err)    
+        }
+        
+    });
+    app.post('/product-api/create-review', async(req,res,next) => {
+        
+        try {
+            const { stars,name,email,review,products } = req.body; 
+            // validation
+            const { data } =  await service.CreateReivew({ stars,name,email,review,products });
             return res.json(data);
             
         } catch (err) {

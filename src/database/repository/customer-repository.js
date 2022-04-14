@@ -121,11 +121,11 @@ class CustomerRepository {
 
 
     async AddCartItem(customerId, product, qty, isRemove){
-
+        console.log(customerId, product, qty, isRemove)
         try{
 
             const profile = await CustomerModel.findById(customerId).populate('cart.product');
-    
+            console.log(profile)
             if(profile){ 
      
                 const cartItem = {

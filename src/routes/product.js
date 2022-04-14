@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('product', { title: 'Express' });
 });
-router.get('/:id/:catagoryId', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   res.render('product', { title: 'Express' });
 });
 
