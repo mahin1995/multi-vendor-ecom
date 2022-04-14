@@ -12,7 +12,7 @@ module.exports = async (app) => {
     app.use(express.static(__dirname + '/public'))
 
 // views
-app.use('/home', home_view);
+app.use('/', home_view);
 app.use('/users-views',users_view );
 app.use('/product-views',products_view );
 // catch 404 and forward to error handler
