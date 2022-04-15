@@ -1,10 +1,17 @@
 var express = require('express');
 var router = express.Router();
+const ProductService = require('../services/product-service');
+
+
+const service = new ProductService();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
     try{
-        res.render('index', { title: 'ECOM Home' });
+      const { data} = await service.GetProducts();        
+      const selectedProduct  = await service.GetProductDescription("62584df6f875cc35ba874848");        
+
+        res.render('index', { title: 'ECOM Home',products:data.products,bestProduct:selectedProduct.data});
     }catch(err){
         next(err)
     }
