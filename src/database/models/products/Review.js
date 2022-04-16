@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const SpecificationSchema = new Schema({
+const ReviewSchema = new Schema({
     stars: Number,
     name: String,
     email: String,
@@ -18,4 +18,4 @@ const SpecificationSchema = new Schema({
 }
 );
 
-module.exports =  mongoose.model('Specification', SpecificationSchema);
+module.exports =  mongoose.model('Review', ReviewSchema);

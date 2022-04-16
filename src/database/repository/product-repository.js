@@ -39,7 +39,18 @@ class ProductRepository {
         }
 
     }
+async FindByIdWithpopulate(props){
+    try{
+     
+        const products = await ProductModel.findById(props.id).populate(props.populate);
 
+        return products
+    }
+    catch(err){
+        throw APIError('API Error', STATUS_CODES.INTERNAL_ERROR, 'Unable to Find Products')
+
+    }
+}
     async FindByCategory(category){
 
         try{
@@ -114,6 +125,18 @@ async CreateReviewsProduct({stars,name,email,review,products}){
 
         const reviewResult = await reviews.save();
         return reviewResult;
+    }catch(err){
+        console.log("err",err)
+        throw APIError('API Error', STATUS_CODES.INTERNAL_ERROR, 'Unable to Create Sub-categories')
+
+    }
+
+}
+async GetReviewsProduct(productsid){
+    try{
+        const review = await ReviewModel.find({ products: productsid});
+     
+        return review;
     }catch(err){
         console.log("err",err)
         throw APIError('API Error', STATUS_CODES.INTERNAL_ERROR, 'Unable to Create Sub-categories')

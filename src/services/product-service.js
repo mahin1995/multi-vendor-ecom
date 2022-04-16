@@ -49,6 +49,15 @@ class ProductService {
         }
     }
 
+    async GetProductWithPopulate(productId){
+        try {
+            const product = await this.repository.FindByIdWithpopulate({id:productId,populate:['brand',"subcategories","category"]});
+            return FormateData(product)
+        } catch (err) {
+            throw new APIError('Data Not found')
+        }
+    }
+
     async GetProductsByCategory(category){
         try {
             const products = await this.repository.FindByCategory(category);
@@ -105,6 +114,14 @@ class ProductService {
     async CreateReivew(categoriesInputs){
         try{
             const result = await this.repository.CreateReviewsProduct(categoriesInputs)
+            return FormateData(result);
+        }catch(err){
+            throw new APIError('Data Not found')
+        }
+    }
+    async GetReview(ProductId){
+        try{
+            const result = await this.repository.GetReviewsProduct(ProductId)
             return FormateData(result);
         }catch(err){
             throw new APIError('Data Not found')

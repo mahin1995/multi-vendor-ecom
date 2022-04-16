@@ -11,9 +11,9 @@ module.exports = (app) => {
     app.post('/product-api/create-product', async(req,res,next) => {
         
         try {
-            const { name, desc, type, unit,price, available, suplier, banner,brand,category,description,subcategories,image } = req.body; 
+            const { name, desc, type, unit,price, available, suplier, banner,brand,category,description,subcategories,image,specification } = req.body; 
             // validation
-            const { data } =  await service.CreateProduct({ name, desc, type, unit,price, available, suplier, banner,brand,category,description,subcategories,image });
+            const { data } =  await service.CreateProduct({ name, desc, type, unit,price, available, suplier, banner,brand,category,description,subcategories,image,specification });
             return res.json(data);
             
         } catch (err) {
