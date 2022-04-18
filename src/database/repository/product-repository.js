@@ -51,6 +51,17 @@ async FindByIdWithpopulate(props){
 
     }
 }
+async FindCategroyWithPopulate(props){
+    try{
+     console.log(props.populate)
+        const category = await CategoriesModel.find().populate('subcategories')
+        return category
+    }
+    catch(err){
+        throw APIError('API Error', STATUS_CODES.INTERNAL_ERROR, 'Unable to Find Products')
+
+    }
+}
     async FindByCategory(category){
 
         try{

@@ -9,6 +9,7 @@ const service = new ProductService();
 router.get('/', async function(req, res, next) {
     try{
       const { data} = await service.GetProducts();        
+  
       const selectedProduct  = await service.GetProductDescription("62584df6f875cc35ba874848");        
 
         res.render('index', { title: 'ECOM Home',products:data.products,bestProduct:selectedProduct.data});

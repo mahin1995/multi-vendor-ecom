@@ -61,6 +61,20 @@ module.exports = (app) => {
         }
         
     });
+    app.get('/product-api/get-catagories', async(req,res,next) => {
+        
+        try {
+            const { name,desc,subcategories } = req.body; 
+            // validation
+            const { data } =  await service.GetAllCategorywitSubCategory();        
+
+            return res.json(data);
+            
+        } catch (err) {
+            next(err)    
+        }
+        
+    });
     app.post('/product-api/create-review', async(req,res,next) => {
         
         try {

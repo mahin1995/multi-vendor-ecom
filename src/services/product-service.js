@@ -57,7 +57,14 @@ class ProductService {
             throw new APIError('Data Not found')
         }
     }
-
+    async GetAllCategorywitSubCategory(){
+        try {
+            const product = await this.repository.FindCategroyWithPopulate({populate:"subcategories"});
+            return FormateData(product)
+        } catch (err) {
+            throw new APIError('Data Not found')
+        }
+    }
     async GetProductsByCategory(category){
         try {
             const products = await this.repository.FindByCategory(category);

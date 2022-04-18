@@ -11,7 +11,7 @@ router.get('/',async function(req, res, next) {
     const id=req.query.id
     const { data} = await service.GetProducts(); 
     const selectedProduct  = await service.GetProductWithPopulate(id); 
-    const productReview  = await service.GetReview(id); 
+    const productReview  = await service.GetReview(id);
     console.log(productReview)
         res.render('product', { title: 'Express',currentProduct:selectedProduct.data,review:productReview.data,products:data.products});
   }catch(err){
