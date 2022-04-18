@@ -9,7 +9,7 @@ const CategoriesSchema = new Schema({
     subcategories:[
         {
             type:mongoose.Types.ObjectId,
-            ref:'Subcategories'
+            ref:'SubCategories'
         }
     ],
 

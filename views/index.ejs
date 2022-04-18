@@ -1452,10 +1452,10 @@
                                             <div class="product-card__badge product-card__badge--hot">Hot
                                             </div>
                                         </div>
-                                        <div class="product-card__image"><a href="product.html"><img
+                                        <div class="product-card__image"><a href="/product-views/?id=<%- products[i]._id %>"><img
                                                     src="<%- products[i].image[0].path %> " alt=""></a></div>
                                         <div class="product-card__info">
-                                            <div class="product-card__name"><a href="product.html"><%= products[i].name %></a></div>
+                                            <div class="product-card__name"><a href="/product-views/?id=<%- products[i]._id %>"><%= products[i].name %></a></div>
                                             <div class="product-card__rating">
                                                 <div class="rating">
                                                     <div class="rating__body"><svg
@@ -2318,38 +2318,7 @@
         <!-- site__body / end -->
 
 
-<script type="module">
 
-import {createEffect,createSignal,For} from "https://cdn.skypack.dev/solid-js";
-import {createStore} from "https://cdn.skypack.dev/solid-js/store";
-import { render } from "https://cdn.skypack.dev/solid-js/web";
-import html from "https://cdn.skypack.dev/solid-js/html";
-
-const App = () => {
-const [state, setState] = createStore({
-products:[]
-});
-const [object, setObject] = createSignal({ products: [] })
-
-createEffect(() => {
-fetch('http://localhost:8000/products-api')
-.then(response => response.json())
-.then(data => {
-setState({products:[...data.products]})
-setObject({products:[...data.products]})
-})
-.catch(err => console.error(err));
-});
-
-
-return html`
-`
-
-
-};
-render(App, document.getElementById("product-carousel-data"));
-
-</script>
 <!--                         
             <script id="productDataCarouselScript" type="text/x-handlebars-template" >
             
