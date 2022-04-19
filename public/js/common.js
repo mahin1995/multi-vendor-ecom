@@ -20,6 +20,16 @@ function setSideNavbar(){
       category:category,
    });
    document.querySelector("#sidbarNavMenuEdited").innerHTML =   filled ;
+
+
+   let template2 = Handlebars.compile(
+   document.querySelector("#catagoryDetails").innerHTML
+   );
+   
+   let filled2 = template2({
+      category:category,
+   });
+   document.querySelector("#catagoryDetailsOutput").innerHTML =   filled2 ;
       },
       error: function(err){
          err.then(err=>{

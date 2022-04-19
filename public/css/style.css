@@ -4274,6 +4274,9 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .footer-newsletter__social-link--twitter a {
   background: #00a2e8;
 }
+.footer-newsletter__social-link--google a {
+  background: #00e874;
+}
 .footer-newsletter__social-link--youtube a {
   background: #e52e2e;
 }
