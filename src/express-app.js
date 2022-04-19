@@ -15,10 +15,7 @@ module.exports = async (app) => {
 app.use('/', home_view);
 app.use('/',users_view );
 app.use('/product-views',products_view );
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+
 
     //api
     customer(app);
