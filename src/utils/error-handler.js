@@ -41,12 +41,14 @@ const ErrorHandler = async(err,req,res,next) => {
     process.on('uncaughtException', (reason, promise) => {
         console.log(reason, 'UNHANDLED');
         throw reason; // need to take care
+        // next()
     })
 
     process.on('uncaughtException', (error) => {
         errorLogger.logError(error);
         if(errorLogger.isTrustError(err)){
             //process exist // need restart
+            // next()
         }
     })
     

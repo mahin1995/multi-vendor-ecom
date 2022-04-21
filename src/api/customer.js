@@ -1,7 +1,10 @@
 const CustomerService = require('../services/customer-service');
 const  UserAuth = require('./middlewares/auth');
 
+
 module.exports = (app) => {
+
+
     
     const service = new CustomerService();
 
@@ -25,8 +28,24 @@ module.exports = (app) => {
             const { email, password } = req.body;
     
             const { data } = await service.SignIn({ email, password});
-    
-            return res.json(data);
+           req.session.isAuthenticated=true
+        //    req.session.isLoggedIn=true
+            res.send(data);
+            res.end()
+
+        } catch (err) {
+            next(err)
+        }
+
+    });
+    app.post('/customer/logout',  async (req,res,next) => {
+        
+        try {
+            
+         req.session.destroy((err)=>{
+             if(err) throw err;
+             res.send({success:"logout success fully"})
+         })
 
         } catch (err) {
             next(err)
@@ -92,4 +111,24 @@ module.exports = (app) => {
             next(err)
         }
     });
+
+
+
+    app.get('/customer/validation', UserAuth ,async (req,res,next) => {
+
+        try {
+            const { _id } = req.user;
+            if(_id){
+                return res.json({
+                    "auth":true
+                });
+            }
+            
+        } catch (err) {
+            console.log("error view",err)
+            next(err)
+            // res.end()
+        }
+    });
+
 }

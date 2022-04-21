@@ -1,6 +1,7 @@
 const ShoppingService = require("../services/shopping-service");
 const UserService = require('../services/customer-service');
 const UserAuth = require('./middlewares/auth');
+const isAuth = require('./middlewares/isAuthenticate');
 
 module.exports = (app) => {
     

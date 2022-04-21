@@ -40,4 +40,8 @@ function setSideNavbar(){
    });
 }
 
+
+
 })(jQuery);
+
+

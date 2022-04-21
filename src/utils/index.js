@@ -32,6 +32,7 @@ module.exports.ValidateSignature  = async(req) => {
 
         const signature = req.get('Authorization');
         const token=signature.split(' ')[1]
+    
         
         if(signature){
                 try{

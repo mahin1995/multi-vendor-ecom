@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const ProductService = require('../services/product-service');
-
+const isAuth= require('./middlewares/isAuthenticate')
 
 const service = new ProductService();
 
@@ -17,14 +17,18 @@ router.get('/', async function(req, res, next) {
         next(err)
     }
 });
-router.get('/wishlist-view', function(req, res, next) {
-  res.render('wishlist', { title: 'wishlist' });
+router.get('/wishlist-view',isAuth, function(req, res, next) {
+    res.render('wishlist', { title: 'wishlist' });
+  
 });
-router.get('/cart-view', function(req, res, next) {
-  res.render('cart', { title: 'cart' });
+router.get('/cart-view',isAuth, function(req, res, next) {
+    res.render('cart', { title: 'cart' });
 });
 router.get('/checkout-view', function(req, res, next) {
   res.render('checkout', { title: 'checkout' });
+});
+router.get('/contact-view', function(req, res, next) {
+  res.render('contact', { title: 'checkout' });
 });
 
 module.exports = router;

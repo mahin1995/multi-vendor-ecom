@@ -71,7 +71,7 @@
                         <div class="topbar__item topbar__item--link"><a class="topbar-link"
                                 href="about-us.html">About Us</a></div>
                         <div class="topbar__item topbar__item--link"><a class="topbar-link"
-                                href="contact-us.html">Contacts</a></div>
+                                href="/contact-view">Contacts</a></div>
                         <div class="topbar__item topbar__item--link"><a class="topbar-link" href="#">Store
                                 Location</a></div>
                         <div class="topbar__item topbar__item--link"><a class="topbar-link"
@@ -87,8 +87,9 @@
                                 <div class="topbar-dropdown__body">
                                     <!-- .menu -->
                                     <ul class="menu menu--layout--topbar">
-                                        <li><a href="account.html">Login</a></li>
-                                        <li><a href="account.html">Register</a></li>
+                                        <li><a href="/login">Login</a></li>
+                                        <li><a href="/signup">Register</a></li>
+                                        <li ><a href="#" onclick="logoutAuth()">Logout</a></li>
                                         <li><a href="#">Orders</a></li>
                                         <li><a href="#">Addresses</a></li>
                                     </ul><!-- .menu / end -->
@@ -330,10 +331,11 @@
                                  
                               
                                  
-                                    <li class="nav-links__item"><a href="contact-us.html"><span>Contact
+                                    <li class="nav-links__item"><a href="/contact-view"><span>Contact
                                                 Us</span></a></li>
                                     <li class="nav-links__item"><a href="/login"><span>Login</span></a></li>
                                     <li class="nav-links__item"><a href="/signup"><span>SignUp</span></a></li>
+                                    <li class="nav-links__item" ><a href="#" onclick="LogoutAuth()" ><span>Logout</span></a></li>
                                 </ul>
                             </div><!-- .nav-links / end -->
                             <div class="nav-panel__indicators">
@@ -341,7 +343,9 @@
                                             class="indicator__area"><svg width="20px" height="20px">
                                                 <use xlink:href="/images/sprite.svg#heart-20"></use>
                                             </svg> <span class="indicator__value">0</span></span></a></div>
-                                <div class="indicator indicator--trigger--click"><a href="/cart-view"
+                                <!-- <div class="indicator indicator--trigger--click"> -->
+                                <div class="indicator">
+                                    <a href="/cart-view"
                                         class="indicator__button"><span class="indicator__area">
                                             <!-- <svg width="20px"
                                                 height="20px">
@@ -360,8 +364,8 @@
 </svg>
                                             
                                             <span class="indicator__value">3</span></span></a>
-                                    <div class="indicator__dropdown">
-                                        <!-- .dropcart -->
+                                    <!-- <div class="indicator__dropdown">
+                                     
                                         <div class="dropcart">
                                             <div class="dropcart__products-list">
                                                 <div class="dropcart__product">
@@ -447,8 +451,8 @@
                                             <div class="dropcart__buttons"><a class="btn btn-secondary"
                                                     href="/cart-view">View Cart</a> <a class="btn btn-primary"
                                                     href="/checkout-view">Checkout</a></div>
-                                        </div><!-- .dropcart / end -->
-                                    </div>
+                                        </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -456,4 +460,33 @@
                 </div>
             </div>
         </div>
+        <script>
+            function LogoutAuth(){
+   console.log("logout")
+    $.ajax({
+       url: "/customer/logout",
+       type: "POST", 
+       headers: {"X-Test-Header": "test-value"},
+       beforeSend: function(){
+          
+ 
+ 
+        },
+       success: function(data){ 
+          if(data.success){
+             localStorage.removeItem("key");
+             localStorage.removeItem("id");
+            window.location.replace("/");
+
+          }
+       },
+       error: function(err){
+          err.then(err=>{
+    
+             console.log(err)
+          })
+       }
+    });
+ }
+        </script>
     </header><!-- desktop site__header / end -->

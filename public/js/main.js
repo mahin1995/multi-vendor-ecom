@@ -837,4 +837,10 @@
             productsList.attr('data-with-features', $(this).attr('data-with-features'));
         });
     });
+
+
+
+    
+
+
 })(jQuery);

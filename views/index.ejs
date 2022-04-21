@@ -315,8 +315,9 @@
                                             <div class="product-card__prices"><%= product.price %> BDT</div>
                                             <div class="product-card__buttons"><button
                                                     class="btn btn-primary product-card__addtocart"
+                                                    data-product_id="<%= product._id %>" onclick="addToCart(this)"
                                                     type="button">Add To
-                                                    Cart</button> <button
+                                                    Cart</button> <button data-product_id="<%= product._id %>" onclick="addToCart(this)"
                                                     class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
                                                     type="button">Add To Cart</button> <button
                                                     class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
@@ -511,9 +512,11 @@
                                         <div class="product-card__prices"><%= bestProduct.price %> BDT</div>
                                         <div class="product-card__buttons"><button
                                                 class="btn btn-primary product-card__addtocart"
+                                                data-product_id="<%= bestProduct._id %>" onclick="addToCart(this)"
                                                 type="button">Add To
                                                 Cart</button> <button
                                                 class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
+                                                data-product_id="<%= bestProduct._id %>" onclick="addToCart(this)"
                                                 type="button">Add To Cart</button> <button
                                                 class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
                                                 type="button"><svg width="16px" height="16px">
@@ -676,9 +679,11 @@
                                                     class="product-card__old-price">1189.00 BDT</span></div>
                                             <div class="product-card__buttons"><button
                                                     class="btn btn-primary product-card__addtocart"
+                                                    data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                     type="button">Add To
                                                     Cart</button> <button
                                                     class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
+                                                    data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                     type="button">Add To Cart</button> <button
                                                     class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
                                                     type="button"><svg width="16px" height="16px">
@@ -914,9 +919,11 @@
                                                 <div class="product-card__prices"><%- products[i].price %> BDT</div>
                                                 <div class="product-card__buttons"><button
                                                         class="btn btn-primary product-card__addtocart"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To
                                                         Cart</button> <button
                                                         class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To Cart</button> <button
                                                         class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
                                                         type="button"><svg width="16px" height="16px">
@@ -1084,9 +1091,11 @@
                                                 <div class="product-card__prices"><% products[i].price %> BDT</div>
                                                 <div class="product-card__buttons"><button
                                                         class="btn btn-primary product-card__addtocart"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To
                                                         Cart</button> <button
                                                         class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To Cart</button> <button
                                                         class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
                                                         type="button"><svg width="16px" height="16px">
@@ -1328,8 +1337,10 @@
                                             <div class="product-card__prices"><%- products[i].price %>BDT </div>
                                             <div class="product-card__buttons"><button
                                                     class="btn btn-primary product-card__addtocart"
+                                                    data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                     type="button">Add To Cart</button> <button
                                                     class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
+                                                    data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                     type="button">Add To Cart</button> <button
                                                     class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
                                                     type="button"><svg width="16px" height="16px">
@@ -1492,9 +1503,11 @@
                                         <div class="product-card__prices"><%= bestProduct.price %> BDT</div>
                                         <div class="product-card__buttons"><button
                                                 class="btn btn-primary product-card__addtocart"
+                                                data-product_id="<%= bestProduct._id %>" onclick="addToCart(this)"
                                                 type="button">Add To
                                                 Cart</button> <button
                                                 class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
+                                                data-product_id="<%= bestProduct._id %>" onclick="addToCart(this)"
                                                 type="button">Add To Cart</button> <button
                                                 class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
                                                 type="button"><svg width="16px" height="16px">
@@ -1675,9 +1688,11 @@
                                                 <div class="product-card__prices">$749.00</div>
                                                 <div class="product-card__buttons"><button
                                                         class="btn btn-primary product-card__addtocart"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To
                                                         Cart</button> <button
                                                         class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To Cart</button> <button
                                                         class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
                                                         type="button"><svg width="16px" height="16px">
@@ -1854,9 +1869,11 @@
                                                 <div class="product-card__prices">$749.00</div>
                                                 <div class="product-card__buttons"><button
                                                         class="btn btn-primary product-card__addtocart"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To
                                                         Cart</button> <button
                                                         class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To Cart</button> <button
                                                         class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
                                                         type="button"><svg width="16px" height="16px">
@@ -2031,9 +2048,11 @@
                                                 <div class="product-card__prices">$749.00</div>
                                                 <div class="product-card__buttons"><button
                                                         class="btn btn-primary product-card__addtocart"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To
                                                         Cart</button> <button
                                                         class="btn btn-secondary product-card__addtocart product-card__addtocart--list"
+                                                        data-product_id="<%= products[i]._id %>" onclick="addToCart(this)"
                                                         type="button">Add To Cart</button> <button
                                                         class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
                                                         type="button"><svg width="16px" height="16px">
@@ -2064,44 +2083,13 @@
 
 
 
-<!--                         
-            <script id="productDataCarouselScript" type="text/x-handlebars-template" >
-            
-                
-            </script>
-<script>
-$(document).ready(function () {
 
-});
-
-$( window ).on("load", function() {
-console.log("hello")
-var product=[]
-fetch('http://localhost:8000/products-api')
-.then(response => response.json())
-.then(data => {
-product=[...data.products]
-
-let template = Handlebars.compile(
-document.querySelector("#productDataCarouselScript").innerHTML
-);
-console.log(product)
-let filled = template({
-product:product,
-});
-document.querySelector("#product-carousel-data").innerHTML =   filled ;
-
-
-})
-.catch(err => console.error(err));
-});
-
-</script> -->
 
             <%- include('./layout/footer'); %>
 
-    </cla>
+ 
             <!-- site / end -->
+            <script type="text/javascript" src="/js/index.js"></script>
 
 </body>
 
