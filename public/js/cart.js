@@ -1,12 +1,12 @@
 
    "use strict";
 var category;
+var cart;
 $( window ).on("load", function() {
    cartlist()
 
 })
-$('#loginBtn').on('click',function(){
-})
+
 Handlebars.registerHelper('totalPrice', function(price,qty) {
   let totalprice= parseFloat(price)*parseInt(qty)
    return totalprice;

@@ -11,24 +11,32 @@ router.get('/', async function(req, res, next) {
       const { data} = await service.GetProducts();        
   
       const selectedProduct  = await service.GetProductDescription("62584df6f875cc35ba874848");        
-
-        res.render('index', { title: 'ECOM Home',products:data.products,bestProduct:selectedProduct.data});
+      const isAuth=req.session.isAuthenticated;
+        res.render('index', { title: 'ECOM Home',products:data.products,bestProduct:selectedProduct.data,isAuth:isAuth});
     }catch(err){
         next(err)
     }
 });
 router.get('/wishlist-view',isAuth, function(req, res, next) {
-    res.render('wishlist', { title: 'wishlist' });
+  const isAuth=req.session.isAuthenticated;
+
+    res.render('wishlist', { title: 'wishlist',isAuth:isAuth });
   
 });
 router.get('/cart-view',isAuth, function(req, res, next) {
-    res.render('cart', { title: 'cart' });
+  const isAuth=req.session.isAuthenticated;
+
+    res.render('cart', { title: 'cart',isAuth:isAuth });
 });
 router.get('/checkout-view', function(req, res, next) {
-  res.render('checkout', { title: 'checkout' });
+  const isAuth=req.session.isAuthenticated;
+
+  res.render('checkout', { title: 'checkout',isAuth:isAuth });
 });
 router.get('/contact-view', function(req, res, next) {
-  res.render('contact', { title: 'checkout' });
+  const isAuth=req.session.isAuthenticated;
+
+  res.render('contact', { title: 'checkout',isAuth:isAuth });
 });
 
 module.exports = router;

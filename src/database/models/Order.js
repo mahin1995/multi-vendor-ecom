@@ -21,7 +21,8 @@ const OrderSchema = new Schema({
             delete ret.__v;
         }
     },
-    timestamps: true
+    timestamps: true,
+    address: {type: Schema.Types.ObjectId, ref: 'address'} ,
 });
 
 module.exports =  mongoose.model('order', OrderSchema);

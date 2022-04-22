@@ -53,7 +53,7 @@ async FindByIdWithpopulate(props){
 }
 async FindCategroyWithPopulate(props){
     try{
-     console.log(props.populate)
+
         const category = await CategoriesModel.find().populate('subcategories')
         return category
     }

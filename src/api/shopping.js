@@ -11,11 +11,11 @@ module.exports = (app) => {
     app.post('/shopping-api/order',UserAuth, async (req,res,next) => {
 
         const { _id } = req.user;
-        const { txnNumber } = req.body;
+        const { txnNumber,address } = req.body;
 
 
         try {
-            const { data } = await service.PlaceOrder({_id, txnNumber});
+            const { data } = await service.PlaceOrder({_id, txnNumber,address});
             return res.status(200).json(data);
             
         } catch (err) {

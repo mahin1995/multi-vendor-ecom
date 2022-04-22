@@ -59,9 +59,9 @@ module.exports = (app) => {
             
             const { _id } = req.user;
     
-            const { street, postalCode, city,country } = req.body;
+            const { street, postalCode, city,country,name,optional,email,phone } = req.body;
     
-            const { data } = await service.AddNewAddress( _id ,{ street, postalCode, city,country});
+            const { data } = await service.AddNewAddress( _id ,{ street, postalCode, city,country,name,optional,email,phone});
     
             return res.json(data);
 

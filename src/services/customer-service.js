@@ -61,10 +61,10 @@ class CustomerService {
 
     async AddNewAddress(_id,userInputs){
         
-        const { street, postalCode, city,country} = userInputs;
+        const { street, postalCode, city,country,name,optional,email,phone} = userInputs;
         
         try {
-            const addressResult = await this.repository.CreateAddress({ _id, street, postalCode, city,country})
+            const addressResult = await this.repository.CreateAddress({ _id, street, postalCode, city,country,name,optional,email,phone})
             return FormateData(addressResult);
             
         } catch (err) {

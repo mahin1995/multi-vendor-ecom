@@ -18,7 +18,7 @@ class ShoppingRepository {
     }
  
  
-    async CreateNewOrder(customerId, txnId){
+    async CreateNewOrder(customerId, txnId,address){
 
         //check transaction for payment Status
         
@@ -44,6 +44,7 @@ class ShoppingRepository {
                         customerId,
                         amount,
                         txnId,
+                        address,
                         status: 'received',
                         items: cartItems
                     })

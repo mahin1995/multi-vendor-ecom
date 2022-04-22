@@ -10,7 +10,7 @@ class ShoppingService {
  
     async PlaceOrder(userInput){
 
-        const { _id, txnNumber } = userInput
+        const { _id, txnNumber,address } = userInput
 
         // Verify the txn number with payment logs
         
@@ -18,7 +18,7 @@ class ShoppingService {
 
         
         try {
-            const orderResult = await this.repository.CreateNewOrder(_id, txnNumber);
+            const orderResult = await this.repository.CreateNewOrder(_id, txnNumber,address);
             return FormateData(orderResult);    
         } catch (err) {
             throw new APIError('Data Not found', err)

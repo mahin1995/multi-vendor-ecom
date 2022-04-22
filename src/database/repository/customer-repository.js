@@ -20,7 +20,7 @@ class CustomerRepository {
         }
     }
     
-    async CreateAddress({ _id, street, postalCode, city, country}){
+    async CreateAddress({ _id, street, postalCode, city, country,name,optional,email,phone}){
         
         try{
             const profile = await CustomerModel.findById(_id);
@@ -31,7 +31,8 @@ class CustomerRepository {
                     street,
                     postalCode,
                     city,
-                    country
+                    country,
+                    name,optional,email,phone
                 })
     
                 await newAddress.save();
@@ -121,11 +122,11 @@ class CustomerRepository {
 
 
     async AddCartItem(customerId, product, qty, isRemove){
-        console.log(customerId, product, qty, isRemove)
+      
         try{
 
             const profile = await CustomerModel.findById(customerId).populate('cart.product');
-            console.log(profile)
+         
             if(profile){ 
      
                 const cartItem = {
