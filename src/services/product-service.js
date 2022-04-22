@@ -65,9 +65,9 @@ class ProductService {
             throw new APIError('Data Not found')
         }
     }
-    async GetProductsByCategory(category){
+    async GetProductsByType(type){
         try {
-            const products = await this.repository.FindByCategory(category);
+            const products = await this.repository.FindByType(type);
             return FormateData(products)
         } catch (err) {
             throw new APIError('Data Not found')

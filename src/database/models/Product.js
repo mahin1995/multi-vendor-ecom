@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
     name: String,
-    type: String,
+    type: {type: String, enum: ['best', 'top','special']},
     unit: Number,
     price: Number,
     available: Boolean,

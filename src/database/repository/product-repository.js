@@ -62,10 +62,10 @@ async FindCategroyWithPopulate(props){
 
     }
 }
-    async FindByCategory(category){
+    async FindByType(type){
 
         try{
-            const products = await ProductModel.find({ type: category});
+            const products = await ProductModel.find({ type: type});
              return products;
             
         }catch(err){
@@ -109,10 +109,10 @@ async CreateBrands(name,desc){
     }
 
 }
-async CreateCategories({name,desc,subcategories}){
+async CreateCategories({name,desc,subcategories,image}){
     try{
         const categories = new CategoriesModel({
-            name, desc,subcategories
+            name, desc,subcategories,image
         })
 
         const categoriesResult = await categories.save();

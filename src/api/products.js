@@ -40,6 +40,7 @@ module.exports = (app) => {
         
         try {
             const { name,desc,products } = req.body; 
+           
             // validation
             const { data } =  await service.CreateSubcategorie({ name, desc,products });
             return res.json(data);
@@ -52,9 +53,9 @@ module.exports = (app) => {
     app.post('/product-api/create-catagories', async(req,res,next) => {
         
         try {
-            const { name,desc,subcategories } = req.body; 
+            const { name,desc,subcategories,image } = req.body; 
             // validation
-            const { data } =  await service.Createcategorie({ name, desc,subcategories });
+            const { data } =  await service.Createcategorie({ name, desc,subcategories,image });
             return res.json(data);
             
         } catch (err) {
@@ -95,7 +96,7 @@ module.exports = (app) => {
         const type = req.params.type;
         
         try {
-            const { data } = await service.GetProductsByCategory(type)
+            const { data } = await service.GetProductsByType(type)
             return res.status(200).json(data);
 
         } catch (err) {
