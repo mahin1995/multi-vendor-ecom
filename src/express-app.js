@@ -11,13 +11,13 @@ const is_live = false //true for live, false for sandbox
 
 module.exports = async (app) => {
     app.get('/payment-gateway', (req, res) => {
-        const addrId=req.query.addrId
+        const txnId=req.query.txnId
 
         const data = {
             total_amount: 100,
             currency: 'BDT',
-            tran_id: 'REF123', // use unique tran_id for each api call
-            success_url: `${process.env.ROOT}/payment-success?addrId=${addrId}`,
+            tran_id: txnId, // use unique tran_id for each api call
+            success_url: `${process.env.ROOT}/payment-success`,
             fail_url: `${process.env.ROOT}/payment-fail`,
             cancel_url: `${process.env.ROOT}/payment-cancel`,
             ipn_url: `${process.env.ROOT}/payment-ipn`,
@@ -55,10 +55,9 @@ module.exports = async (app) => {
     })
 // views
 app.post("/payment-success",async (req,res,next)=>{
-    const addrId=req.query.addrId
-    return res.status(200).json({
-        data:req.body
-    })
+  
+    // tran_id
+    return res.redirect(`/order-complite/?txnId=${req.body.tran_id}`) 
 })
 app.post("/payment-fail",async (req,res,next)=>{
     return res.status(200).json({

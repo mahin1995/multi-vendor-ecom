@@ -45,7 +45,7 @@ class ShoppingRepository {
                         amount,
                         txnId,
                         address,
-                        status: 'received',
+                        status: 'panding',
                         items: cartItems
                     })
         

@@ -24,5 +24,12 @@ if(isAuth){
 }
 return res.redirect('/')  
 });
+router.get('/orderlist', function(req, res, next) {
+  const isAuth=req.session.isAuthenticated;
+if(isAuth){
+  return res.render('orderlist', { title: 'order-list',isAuth:isAuth });
+}
+return res.redirect('/')  
+});
 
 module.exports = router;

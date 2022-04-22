@@ -42,35 +42,35 @@
                             <div class="card mb-lg-0">
                                 <div class="card-body">
                                     <h3 class="card-title">Billing details</h3>
-                                    <form action="" method="post">
+                                    <form  method="POST" id="checkoutForm">
                                     <div class="form-row">
                                         <div class="form-group col-md-6"><label for="checkout-first-name">First
-                                                Name</label> <input type="text" class="form-control"
+                                                Name</label> <input type="text" name="first-name" class="form-control"
                                                 id="checkout-first-name" placeholder="First Name"></div>
                                         <div class="form-group col-md-6"><label for="checkout-last-name">Last
-                                                Name</label> <input type="text" class="form-control"
+                                                Name</label> <input type="text" name="last-name" class="form-control"
                                                 id="checkout-last-name" placeholder="Last Name"></div>
                                     </div>
                                     
                                    
                                     <div class="form-group"><label for="checkout-street-address">Street Address</label>
-                                        <input type="text" class="form-control" id="checkout-street-address"
+                                        <input type="text" class="form-control" name="street" id="checkout-street-address"
                                             placeholder="Street Address"></div>
                                     <div class="form-group"><label for="checkout-address">Apartment, suite, unit etc.
                                             <span class="text-muted">(Optional)</span></label> <input type="text"
-                                            class="form-control" id="checkout-address"></div>
+                                            class="form-control" name="optional" id="checkout-address"></div>
                                     <div class="form-group"><label for="checkout-city">Town / City</label> <input
-                                            type="text" class="form-control" id="checkout-city"></div>
+                                            type="text" class="form-control" name="city" id="checkout-city"></div>
                                     <div class="form-group"><label for="checkout-state">State / County</label> <input
-                                            type="text" class="form-control" id="checkout-state"></div>
+                                            type="text" class="form-control" name="country" id="checkout-state"></div>
                                     <div class="form-group"><label for="checkout-postcode">Postcode / ZIP</label> <input
-                                            type="text" class="form-control" id="checkout-postcode"></div>
+                                            type="text" class="form-control" name="postalCode" id="checkout-postcode"></div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6"><label for="checkout-email">Email
-                                                address</label> <input type="email" class="form-control"
+                                                address</label> <input name="email" type="email" class="form-control"
                                                 id="checkout-email" placeholder="Email address"></div>
                                         <div class="form-group col-md-6"><label for="checkout-phone">Phone</label>
-                                            <input type="text" class="form-control" id="checkout-phone"
+                                            <input type="text" class="form-control" name="phone" id="checkout-phone"
                                                 placeholder="Phone"></div>
                                     </div>
                                 </form>
@@ -146,7 +146,7 @@
                                                     class="payment-methods__item-header"><span
                                                         class="payment-methods__item-radio input-radio"><span
                                                             class="input-radio__body"><input class="input-radio__input"
-                                                                name="checkout_payment_method" type="radio"
+                                                                name="checkout_payment_method" type="radio"  value="payWithCard"
                                                                 checked="checked"> <span
                                                                 class="input-radio__circle"></span> </span></span><span
                                                         class="payment-methods__item-title">Pay With Card</span></label>
@@ -159,6 +159,7 @@
                                                     class="payment-methods__item-header"><span
                                                         class="payment-methods__item-radio input-radio"><span
                                                             class="input-radio__body"><input class="input-radio__input"
+                                                            value="payWithMobileBanking"
                                                                 name="checkout_payment_method" type="radio"> <span
                                                                 class="input-radio__circle"></span> </span></span><span
                                                         class="payment-methods__item-title">Mobile Banking</span></label>
@@ -170,6 +171,8 @@
                                                     class="payment-methods__item-header"><span
                                                         class="payment-methods__item-radio input-radio"><span
                                                             class="input-radio__body"><input class="input-radio__input"
+                                                            value="payWithCash"
+
                                                                 name="checkout_payment_method" type="radio"> <span
                                                                 class="input-radio__circle"></span> </span></span><span
                                                         class="payment-methods__item-title">Cash on
@@ -193,7 +196,7 @@
                                                 for="checkout-terms">I have read and agree to the website <a
                                                     target="_blank" href="terms-and-conditions.html">terms and
                                                     conditions</a>*</label></div>
-                                    </div><button type="submit" class="btn btn-primary btn-xl btn-block">Place
+                                    </div><button type="button" id="id_place_order" class="btn btn-primary btn-xl btn-block">Place
                                         Order</button>
                                 </div>
                             </div>

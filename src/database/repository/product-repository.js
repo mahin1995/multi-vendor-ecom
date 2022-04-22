@@ -72,6 +72,17 @@ async FindCategroyWithPopulate(props){
             throw APIError('API Error', STATUS_CODES.INTERNAL_ERROR, 'Unable to Find Category')
         }
     }
+    async FindBySubCategory(subCategoryId){
+console.log(subCategoryId)
+        try{
+            // const products = await ProductModel.find({ type: category});
+            const products =await ProductModel.find({subcategories:subCategoryId})
+             return products;
+            
+        }catch(err){
+            throw APIError('API Error', STATUS_CODES.INTERNAL_ERROR, 'Unable to Find Category')
+        }
+    }
 
     async FindSelectedProducts(selectedIds){
         try{

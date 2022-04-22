@@ -194,7 +194,17 @@ module.exports = (app) => {
         try {
             const { data} = await service.GetProducts();        
             return res.status(200).json(data);
-        } catch (error) {
+        } catch (err) {
+            next(err)
+        }
+        
+    });
+    app.get('/products-api/sub-category/:id', async (req,res,next) => {
+        //check validation
+        try {
+            const { data} = await service.GetProductBySubCategory(req.params.id);        
+            return res.status(200).json(data);
+        } catch (err) {
             next(err)
         }
         

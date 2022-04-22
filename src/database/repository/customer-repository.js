@@ -35,12 +35,13 @@ class CustomerRepository {
                     name,optional,email,phone
                 })
     
-                await newAddress.save();
+                // await newAddress.save();
     
                 profile.address.push(newAddress);
+                await profile.save();
+                return await newAddress.save();
             }
     
-            return await profile.save();
 
         }catch(err){
             throw APIError('API Error', STATUS_CODES.INTERNAL_ERROR, 'Error on Create Address')

@@ -30,6 +30,8 @@ module.exports = (app) => {
             const { data } = await service.SignIn({ email, password});
            req.session.isAuthenticated=true
         //    req.session.isLoggedIn=true
+        req.session.user = data.id;
+req.session.save()
             res.send(data);
             res.end()
 

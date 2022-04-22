@@ -30,8 +30,12 @@ router.get('/cart-view',isAuth, function(req, res, next) {
 });
 router.get('/checkout-view', function(req, res, next) {
   const isAuth=req.session.isAuthenticated;
+if(isAuth){
 
-  res.render('checkout', { title: 'checkout',isAuth:isAuth });
+  return res.render('checkout', { title: 'checkout',isAuth:isAuth });
+}else{
+  return res.redirect('/login')  
+}
 });
 router.get('/contact-view', function(req, res, next) {
   const isAuth=req.session.isAuthenticated;

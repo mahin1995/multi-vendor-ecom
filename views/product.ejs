@@ -193,7 +193,7 @@
                             <div class="product__sidebar">
                                 <div class="product__availability">Availability: <span class="text-success">In
                                         Stock</span></div>
-                                <div class="product__prices">$1,499.00</div><!-- .product__options -->
+                                <div class="product__prices"> <%= currentProduct.price  %> BDT</div><!-- .product__options -->
                                 <form class="product__options">
                                     <div class="form-group product__option"><label
                                             class="product__option-label">Color</label>
@@ -231,15 +231,15 @@
                                             for="product-quantity">Quantity</label>
                                         <div class="product__actions">
                                             <div class="product__actions-item">
-                                                <div class="input-number product__quantity"><input id="product-quantity"
+                                                <div class="input-number product__quantity"><input id="<%= currentProduct._id  %>_value" 
                                                         class="input-number__input form-control form-control-lg"
-                                                        type="number" min="1" value="1">
-                                                    <div class="input-number__add"></div>
-                                                    <div class="input-number__sub"></div>
+                                                        type="number" min="1" value="1"  >
+                                                    <div class="input-number__add" data-product_id="<%= currentProduct._id  %>" id="id_increase" onclick="increaseValue(this)"></div>
+                                                    <div class="input-number__sub" data-product_id="<%= currentProduct._id  %>" id="id_decrease" onclick="decreaseValue(this)"></div>
                                                 </div>
                                             </div>
                                             <div class="product__actions-item product__actions-item--addtocart"><button
-                                                    class="btn btn-primary btn-lg">Add to cart</button></div>
+                                                    class="btn btn-primary btn-lg" type="button" data-product_id="<%= currentProduct._id  %>" id="id_add_to_cart">Add to cart</button></div>
                                             <div class="product__actions-item product__actions-item--wishlist"><button
                                                     type="button" class="btn btn-secondary btn-svg-icon btn-lg"
                                                     data-toggle="tooltip" title="Wishlist"><svg width="16px"
@@ -641,6 +641,8 @@
 
         <%- include('./layout/footer'); %>
     </div><!-- site / end -->
+   <script src="/js/product.js"></script>
+
 </body>
 
 </html>

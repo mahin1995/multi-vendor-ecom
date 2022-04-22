@@ -19,5 +19,16 @@ router.get('/',async function(req, res, next) {
     next(err)
   }
 });
+router.get('/productBySubCategory',async function(req, res, next) {
+  const isAuth=req.session.isAuthenticated;
+
+  try{
+
+    const { data} = await service.GetProductBySubCategory(req.query.id); 
+        res.render('shopgrid', { title: 'Products-list',isAuth:isAuth,product:data});
+  }catch(err){
+    next(err)
+  }
+});
 
 module.exports = router;

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <%- include('./layout/head', {title :'Page Title'}); %>
+<body>
+    <%- include('./layout/quickviewmodal'); %>
+    <%- include('./layout/mobilemenu'); %>
+    <!-- site -->
+    <div class="site">
+        <%- include('./layout/navbar',{fixed:true}); %>
+        <div class="site__body">
+            <div class="page-header">
+                <div class="page-header__container container">
+                    <div class="page-header__breadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a> <svg class="breadcrumb-arrow"
+                                        width="6px" height="9px">
+                                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                                    </svg></li>
+                                <li class="breadcrumb-item"><a href="#">Breadcrumb</a> <svg class="breadcrumb-arrow"
+                                        width="6px" height="9px">
+                                        <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                                    </svg></li>
+                                <li class="breadcrumb-item active" aria-current="page">Order List</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="page-header__title">
+                        <h1>Order List</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="container">
+                    <table class="wishlist">
+                        <thead class="wishlist__head">
+                            <tr class="wishlist__row">
+                                <th class="wishlist__column wishlist__column--image">OrderId</th>
+                                <th class="wishlist__column wishlist__column--product">Product</th>
+                                <th class="wishlist__column wishlist__column--stock">Status</th>
+                                <th class="wishlist__column wishlist__column--price">Amount</th>
+                                <th class="wishlist__column wishlist__column--tocart"></th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody class="wishlist__body" id="orderDetails">
+                    
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- site__body / end -->
+        <%- include('./layout/footer'); %>
+    </div><!-- site / end -->
+    <script id="orderDetailsScript" type="text/x-handlebars-template">
+        {{#each orderList as |orders| }}
+        <tr class="wishlist__row">
+            <td class="wishlist__column wishlist__column--image"><a href="#">{{orders._id}}</a></td>
+            <td class="wishlist__column wishlist__column--product">
+                {{#each orders.items}}
+                <a href="#" class="wishlist__product-name">{{this.product.name}} X {{this.unit}} || </a>
+                {{/each}}
+            </td>
+            <td class="wishlist__column wishlist__column--stock">
+                
+                <div class="badge badge-success">{{orders.status}}</div>
+                
+            </td>
+            <td class="wishlist__column wishlist__column--price">$699.00</td>
+          
+            <td class="wishlist__column wishlist__column--remove"><button type="button" id="id_delete_order"
+                    class="btn btn-light btn-sm btn-svg-icon"><svg width="12px" height="12px">
+                        <use xlink:href="images/sprite.svg#cross-12"></use>
+                    </svg></button></td>
+        </tr>
+        {{/each}}
+</script>
+   <script src="/js/orderlist.js"></script>
+
+</body>
+
+</html>
