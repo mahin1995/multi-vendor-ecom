@@ -20,7 +20,12 @@
 
        },
       success: function(data, textStatus, xhr){ 
-   console.log(data)
+         setCartValue()
+         Toast.fire({
+            icon: 'success',
+            title: 'Add to Cart in successfully'
+          })
+
 },
    error: function(jqXHR, textStatus, errorThrown){
       console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
