@@ -2,6 +2,19 @@ const ProductService = require('../services/product-service');
 const CustomerService = require('../services/customer-service');
 const UserAuth = require('./middlewares/auth')
 const isAuth = require('./middlewares/isAuthenticate');
+const path = require("path");
+const multer=require('multer')
+const UPLOAD_FOLDER="../../public/uploads/"
+const storage=multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,path.resolve(__dirname, UPLOAD_FOLDER));
+    },
+    filename:(req,file,cb)=>{
+        cb(null,  file.originalname);
+    }
+})
+const upload = multer({storage:storage,limits:{fileSize:4000000}}).single('avatar')
+const sharp = require('sharp')
 
 module.exports = (app) => {
     
@@ -209,6 +222,23 @@ module.exports = (app) => {
             next(err)
         }
         
+    });
+
+    app.post("/products-api/upload-product-image", (req, res,err) => {
+        upload(req, res, async function(err){ 
+            // check for error thrown by multer- file size etc
+            if( err|| req.file === undefined){
+                console.log(err)
+                res.send("error occured")
+            }else{
+          
+            console.log(
+               
+            )
+               res.send( req.file.filename)
+            }
+           })
+
     });
     
 }

@@ -1,7 +1,7 @@
 
 const { customer, products, shopping } = require('./api');
 const HandleErrors = require('./utils/error-handler')
-var {home_view,products_view,users_view} = require('./routes');
+var {home_view,products_view,users_view,admin_view} = require('./routes');
 const SSLCommerzPayment = require('sslcommerz-lts')
 
 const store_id = process.env.STORE_ID
@@ -83,6 +83,7 @@ res.send("hello session text")
 })
 app.use('/', home_view);
 app.use('/',users_view );
+app.use('/',admin_view );
 app.use('/product-views',products_view );
 
 
